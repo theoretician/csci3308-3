@@ -7,6 +7,9 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+  end
+
+  def sort
     @movies = Movie.all(:order => 'title ASC')
   end
 
