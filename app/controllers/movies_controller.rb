@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @all_ratings = Movie.ratings # Get all distinct ratings through sql query
+    @all_ratings = Movie.ratings.sort # Get all distinct ratings through sql query
     session[:sort_by] ||= 'title' # session sorting hash
     session[:ratings] ||= @all_ratings # session ratings hash
     session[:sort_by] = (params[:sort].blank? ? session[:sort_by] : params[:sort]) # if sort_param is blank, sort by previous, else by param
